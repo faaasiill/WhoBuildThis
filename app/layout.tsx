@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/ui/header-3";
 import Footer from "@/components/ui/Footer";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "@/components/ui/sonner"
 
 const inter = Inter({
     subsets: ["latin"],
@@ -28,6 +29,7 @@ export default function RootLayout({
                 <body className={`${inter.variable} antialiased`}>
                     <Header />
                     <main className="pt-10 md:pt-0">{children}</main>
+                    <Toaster/>
                     <Footer />
                 </body>
             </html>

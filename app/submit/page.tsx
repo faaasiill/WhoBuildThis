@@ -1,11 +1,11 @@
-import SubmitProjectForm from "@/components/forms/SubmitProjectForm"
+import SubmitProjectForm from "@/components/forms/SubmitProjectForm";
 
 const SubmitProject = () => {
-  return (
-    <div>
-        <SubmitProjectForm/>
-    </div>
-  )
-}
+    return (
+        <>
+            <SubmitProjectForm />
+        </>
+    );
+};
 
-export default SubmitProject
+export default SubmitProject;

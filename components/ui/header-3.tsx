@@ -9,9 +9,9 @@ import {
     SignedOut,
     SignInButton,
     SignUpButton,
-    UserButton,
 } from "@clerk/nextjs";
 import Link from "next/link";
+import CustomUserButton from "../common/custom-user-buttom";
 
 const Header = () => {
     const [isVisible, setIsVisible] = useState(true);
@@ -86,13 +86,7 @@ const Header = () => {
                         </SignedOut>
 
                         <SignedIn>
-                            <UserButton
-                                appearance={{
-                                    elements: {
-                                        avatarBox: "w-8 h-8",
-                                    },
-                                }}
-                            />
+                            <CustomUserButton/>
                         </SignedIn>
                     </div>
 
@@ -177,9 +171,7 @@ const Header = () => {
                         </SignedOut>
 
                         <SignedIn>
-                            <div className="pt-2">
-                                <UserButton />
-                            </div>
+                            <CustomUserButton/>
                         </SignedIn>
                     </div>
                 </div>

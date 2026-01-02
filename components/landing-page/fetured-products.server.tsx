@@ -11,6 +11,8 @@ export default async function FeturedProductsServer() {
         image: p.webImage,
         url: p.webURL,
         tags: p.tags,
+        vote: p.vote,
+        slug: p.slug
     }));
 
     return <FeturedProducts featuredProjects={featuredProjects} />;

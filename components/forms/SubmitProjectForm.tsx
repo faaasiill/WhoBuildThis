@@ -12,7 +12,7 @@ import SubmitButton from "./SubmitButton";
 import { addProduct } from "@/lib/products/product-actions";
 
 interface FormData {
-    projectName: string;
+    name: string;
     slug: string;
     tagline: string;
     description: string;
@@ -23,7 +23,7 @@ interface FormData {
 
 const SubmitProjectForm = () => {
     const [formData, setFormData] = useState<FormData>({
-        projectName: "",
+        name: "",
         slug: "",
         tagline: "",
         description: "",
@@ -38,7 +38,7 @@ const SubmitProjectForm = () => {
     };
 
     const validateForm = (): boolean => {
-        if (!formData.projectName.trim()) {
+        if (!formData.name.trim()) {
             toast.error("Project name is required");
             return false;
         }
@@ -84,7 +84,7 @@ const SubmitProjectForm = () => {
 
         try {
             const formDataToSend = new FormData();
-            formDataToSend.append("projectName", formData.projectName);
+            formDataToSend.append("name", formData.name);
             formDataToSend.append("slug", formData.slug);
             formDataToSend.append("tagline", formData.tagline);
             formDataToSend.append("description", formData.description);
@@ -110,7 +110,7 @@ const SubmitProjectForm = () => {
 
                 // Reset form after successful submission
                 setFormData({
-                    projectName: "",
+                    name: "",
                     slug: "",
                     tagline: "",
                     description: "",
@@ -154,12 +154,12 @@ const SubmitProjectForm = () => {
 
                     <div className="space-y-6">
                         <FormInput
-                            name="projectName"
+                            name="name"
                             label="Project Name"
                             placeholder="My Awesome Project"
-                            value={formData.projectName}
+                            value={formData.name}
                             onChange={(value) =>
-                                updateField("projectName", value)
+                                updateField("name", value)
                             }
                             delay={0.1}
                         />

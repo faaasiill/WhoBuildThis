@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { EyeIcon, RocketIcon, UsersIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 

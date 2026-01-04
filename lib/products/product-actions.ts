@@ -14,7 +14,6 @@ export const addProduct = async (formData: FormData) => {
         const { userId, orgId } = await auth();
         console.log(orgId);
 
-        // check user exist.
         if (!userId) {
             return {
                 success: false,
@@ -33,7 +32,7 @@ export const addProduct = async (formData: FormData) => {
         const user = await currentUser();
         const userEmail = user?.emailAddresses[0].emailAddress || "anonymous";
 
-        // Convert FormData → object
+        // Convert FormData to object
         const rawData = Object.fromEntries(formData.entries());
 
         const parsedData = {
@@ -44,13 +43,12 @@ export const addProduct = async (formData: FormData) => {
         // Validate
         const validatedData = productSchema.parse(parsedData);
 
-        // ⬆️ Upload image to Cloudinary
+        // Upload image to Cloudinary
         const webImage = await uploadImageToCloudinary(
             validatedData.image,
             "projects"
         );
 
-        // ⬇️ Prepare DB payload (NO File object)
         const productToSave = {
             name: validatedData.name,
             slug: validatedData.slug,
@@ -72,6 +70,8 @@ export const addProduct = async (formData: FormData) => {
             message:
                 "Project submitted successfully! it will be reviewed shortly",
         };
+
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
         if (err instanceof z.ZodError) {
             const firstErrorMessage = err.issues[0]?.message ?? "Invalid input";
@@ -127,6 +127,7 @@ export const upvoteProductAction = async (productId: string) => {
         }
 
         revalidatePath("/");
+        revalidatePath("/explore");
         return {
             success: true,
             voteCount: result[0].voteCount,
@@ -175,6 +176,7 @@ export const downvoteProductAction = async (productId: string) => {
         }
 
         revalidatePath("/");
+        revalidatePath("/explore");
         return {
             success: true,
             voteCount: result[0].voteCount,

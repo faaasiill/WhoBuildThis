@@ -12,7 +12,8 @@ const FormHeader = () => {
         Share Your Project
       </h1>
       <p className="text-sm text-zinc-400 tracking-tighter max-w-md mx-auto">
-        Share your creation with our community. Your submission will be reviewed before going live.
+        Share your creation with our community. Your submission will be reviewed
+        before going live.
       </p>
     </motion.div>
   );

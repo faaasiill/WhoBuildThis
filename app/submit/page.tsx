@@ -1,11 +1,11 @@
 import SubmitProjectForm from "@/components/forms/SubmitProjectForm";
 
 const SubmitProject = () => {
-    return (
-        <>
-            <SubmitProjectForm />
-        </>
-    );
+  return (
+    <>
+      <SubmitProjectForm />
+    </>
+  );
 };
 
 export default SubmitProject;

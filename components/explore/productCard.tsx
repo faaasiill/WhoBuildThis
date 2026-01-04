@@ -3,12 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import VoteConter from "../ui/vote-control";
 
-const FeaturedCard = ({ featuredProjects }: { featuredProjects: any[] }) => {
+const ProductCard = ({ data }: { data: any[] }) => {
   return (
-    <div className="min-h-screen bg-black">
+    <div className="bg-black">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0">
-          {featuredProjects.map((project) => (
+          {data.map((project) => (
             <Link
               key={project.id}
               href={project.url}
@@ -58,7 +58,10 @@ const FeaturedCard = ({ featuredProjects }: { featuredProjects: any[] }) => {
                         ))}
                       </div>
                     </div>
-                    <VoteConter vote={project.vote} projectId={project.id} />
+                    <VoteConter
+                      vote={project.voteCount}
+                      projectId={project.id}
+                    />
                   </div>
                 </div>
               </div>
@@ -70,4 +73,4 @@ const FeaturedCard = ({ featuredProjects }: { featuredProjects: any[] }) => {
   );
 };
 
-export default FeaturedCard;
+export default ProductCard;

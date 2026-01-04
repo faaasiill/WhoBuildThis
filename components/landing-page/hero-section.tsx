@@ -5,6 +5,7 @@ import { TextLoop } from "../motion-primitives/text-loop";
 import GridBackground from "./GridBackground";
 import { ArrowUpRight } from "lucide-react";
 import StatsCard from "./stats-card";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -88,10 +89,10 @@ const Hero = () => {
         {/* Actions */}
         <div className="mt-10 flex tracking-tight flex-col gap-3 sm:flex-row sm:justify-center">
           <Button className="rounded-full" variant="ghost" size="lg">
-            Share your project
+            <Link href={"/submit"}>Share your project</Link>
           </Button>
           <Button className="rounded-full" size="lg">
-            Explore projects
+            <Link href={"/explore"}>Explore projects</Link>
             <ArrowUpRight strokeWidth={2} />
           </Button>
         </div>

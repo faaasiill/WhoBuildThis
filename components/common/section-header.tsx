@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 
 interface SectionHeaderProps {
   title: string;
@@ -39,7 +40,7 @@ const SectionHeader = ({
         >
           {actionLabel && (
             <>
-              {actionLabel}
+              <Link href={"/explore"}>{actionLabel}</Link>
               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </>
           )}

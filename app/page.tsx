@@ -6,17 +6,16 @@ import FeaturedCardSkeleton from "@/components/ui/fetured-card-skeleton";
 import { Suspense } from "react";
 
 export default async function Home() {
-
-    return (
-        <>
-            <Hero />
-            <Suspense fallback={ <FeaturedCardSkeleton/> } >
-            <FeturedProductsServer />
-            </Suspense>
-            <Sentnce />
-            <ContactUs />
-        </>
-    );
-};
+  return (
+    <>
+      <Hero />
+      <Suspense fallback={<FeaturedCardSkeleton />}>
+        <FeturedProductsServer />
+      </Suspense>
+      <Sentnce />
+      <ContactUs />
+    </>
+  );
+}
 
 // export default Home;

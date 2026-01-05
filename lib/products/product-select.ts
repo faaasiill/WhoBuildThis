@@ -239,8 +239,10 @@ export async function getPendingCount() {
 
 export async function getAllTags() {
   "use cache";
-
-  const result = await db.select({ tags: products.tags }).from(products);
+  
+  const result = await db
+    .select({ tags: products.tags })
+    .from(products);
 
   const tagSet = new Set<string>();
   result.forEach((row) => {

@@ -9,7 +9,7 @@ export default async function Home() {
   return (
     <>
       <Hero />
-      <Suspense fallback={<FeaturedCardSkeleton />}>
+      <Suspense fallback={<FeaturedCardSkeleton count={6} header={true} />}>
         <FeturedProductsServer />
       </Suspense>
       <Sentnce />

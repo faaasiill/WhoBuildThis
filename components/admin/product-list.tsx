@@ -51,6 +51,7 @@ export default function ProductList({
 
   const allSelected =
     products.length > 0 && selectedIds.length === products.length;
+
   const someSelected = selectedIds.length > 0 && !allSelected;
 
   return (
@@ -73,14 +74,10 @@ export default function ProductList({
             className="flex items-center gap-2"
           >
             <Checkbox
-              checked={allSelected}
-              ref={(ref) => {
-                if (ref) {
-                  ref.indeterminate = someSelected;
-                }
-              }}
+              checked={
+                allSelected ? true : someSelected ? "indeterminate" : false
+              }
               onCheckedChange={handleSelectAll}
-              className="border-zinc-700 data-[state=checked]:border-zinc-500 data-[state=checked]:bg-zinc-700"
             />
             <span className="text-sm tracking-tight text-zinc-500">
               Select All

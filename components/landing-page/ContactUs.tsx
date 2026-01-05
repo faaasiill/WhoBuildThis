@@ -11,7 +11,7 @@ import {
   X,
 } from "lucide-react";
 
-const easing = [0.4, 0, 0.2, 1];
+const easing = [0.4, 0, 0.2, 1] as const;
 
 const ContactUs = () => {
   const [isOpen, setIsOpen] = useState(false);
